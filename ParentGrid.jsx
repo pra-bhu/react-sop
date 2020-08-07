@@ -8,16 +8,7 @@ const ParentGrid = styled.div`
   column-gap: 10px;
 `;
 
-export default () => {
-  let size = ["20%", "30%", "50%"];
-  let text = ["Lorem isum"];
-  const propVal = [
-    { color: "orange", label: size[0] },
-    { color: "red", label: size[1] },
-    { color: "green", label: size[2] }
-  ];
-
-  let cards = [
+let cardsArray = [
     {
       size: ["20%", "30%", "50%"],
       text: "Lorem ipsum rete",
@@ -32,14 +23,16 @@ export default () => {
       text: "Lorem ipsum ",
       statusData() {return ([
         { color: "orange", label: this.size[0] },
-        { color: "red", label: this.size[1]},
-        { color: "green", label: this.size[2] }
+        { color: "yellow", label: this.size[1]},
+        { color: "blue", label: this.size[2] }
       ])}
     }
   ];
+
+export default () => {
   return (
     <ParentGrid>
-      {cards.map(curr => (
+      {cardsArray.map(curr => (
         <Card size={curr.size} colors={curr.statusData()} text={curr.text} />
       ))}
     </ParentGrid>
